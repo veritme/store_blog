@@ -1,0 +1,11 @@
+<div class="card">
+  <%= link_to image_tag(main_app.url_for(blog_entry.blog_entry_image.try(:attachment)),class: 'card-img-top'), blog_entry_permalink(blog_entry) %>
+  <div class="card-body">
+    <h5><%= link_to blog_entry.title, blog_entry_permalink(blog_entry), style:"color: inherit"%></h5>
+    <p class="card-text">
+      <%== blog_entry.entry_summary %>
+      <span class="blog_read_more"><%= link_to Spree.t(:blog_read_more), blog_entry_permalink(blog_entry) %></span>
+    </p>
+    <%= render :partial => 'spree/blog_entries/blog_entry_details', :locals => {:blog_entry => blog_entry} %>
+  </div>
+</div>
